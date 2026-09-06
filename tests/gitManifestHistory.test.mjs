@@ -7,6 +7,8 @@ import { execFileSync } from 'node:child_process';
 import { createManifest, manifestBytes, manifestDigest } from '../scripts/releases.mjs';
 import { validateGitManifestHistory } from '../scripts/git-manifest-history.mjs';
 const registry = JSON.parse(readFileSync(new URL('../ecosystem/registry.json', import.meta.url), 'utf8'));
+// Synthetic complete declarations, not a change to the real registry evidence.
+registry.unknowns = []; registry.components[0].unknowns = [];
 function fixture() {
   const root = mkdtempSync(join(tmpdir(), 'manifest-history-git-'));
   const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8' }).trim();
@@ -17,7 +19,7 @@ function fixture() {
     return git('rev-parse', 'HEAD');
   }
   const base = commit();
-  const m = createManifest(registry, { version: '0.0.1', createdAt: '2026-09-06T00:00:00.000Z', registrySourceCommit: base });
+  const m = createManifest(registry, { version: '0.0.1', createdAt: '2026-09-06T00:00:00.000Z', registrySourceCommit: base, status: 'candidate' });
   const dir = join(root, 'ecosystem/releases/0.0.1'); mkdirSync(dir);
   const write = () => {
     writeFileSync(join(dir, 'manifest.json'), manifestBytes(m));
@@ -51,4 +53,8 @@ test('Git comparison fails closed on missing or invalid baseline', () => {
   const f = fixture();
   assert.throws(() => validateGitManifestHistory(f.root, '', f.base), /commits required/);
   assert.throws(() => validateGitManifestHistory(f.root, '0'.repeat(40), f.base));
+});
+test('Git admission refuses a newly committed draft even if its source is correct', () => {
+  const f = fixture(); f.m.status = 'draft'; f.write();
+  assert.throws(() => validateGitManifestHistory(f.root, f.base, f.commit()), /complete candidate/);
 });

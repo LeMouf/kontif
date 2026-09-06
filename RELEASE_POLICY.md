@@ -42,9 +42,9 @@ and resulting tag. A self-authored `approvedBy` field is not sufficient evidence
 This distinction prevents a circular manifest hash and avoids rewriting a draft
 or candidate directory already committed to history. Prepare drafts outside the
 permanent version history until their content is ready; existing recorded versions
-cannot be reused or promoted by editing them. The current preparation command
-writes drafts into the permanent history, so do not use it for the first official
-version until the candidate preparation path is available.
+cannot be reused or promoted by editing them. Preparation writes temporary bundles;
+recording requires a complete candidate and its exact digest. This local recording
+is not release approval. New permanent drafts are refused by Git validation.
 
 Publication must refuse an existing conflicting tag or release. Retrying a failed
 run must first reconcile existing effects and must never silently replace them.
@@ -52,8 +52,8 @@ run must first reconcile existing effects and must never silently replace them.
 ## Activation boundary
 
 Official publication is not enabled. The current validator continues to refuse
-the `released` manifest status. Candidate preparation, the authenticated approval
-binding, a protected publishing workflow and publication reconciliation must be
+the `released` manifest status. The authenticated approval binding,
+a protected publishing workflow and publication reconciliation must be
 implemented and tested before the first official release.
 
 Planned GitHub environment: `ecosystem-release`, with LeMouf as required reviewer,

@@ -84,7 +84,7 @@ test('external consumer reads archived references without current registry', () 
   assert.equal(JSON.parse(result.stdout).manifests, 1);
 });
 
-test('preparation reads committed registry, rejects reuse and ignores working tree edits', () => {
+test('preparation reads committed registry and stages repeatable drafts outside permanent history', () => {
   const root = mkdtempSync(join(tmpdir(), 'manifest-git-input-'));
   for (const dir of ['scripts', 'ecosystem']) cpSync(new URL(`../${dir}`, import.meta.url), join(root, dir), { recursive: true });
   const run = (command, args) => {
@@ -98,8 +98,11 @@ test('preparation reads committed registry, rejects reuse and ignores working tr
   writeFileSync(join(root, 'ecosystem/registry.json'), JSON.stringify(changed));
   const args = ['scripts/prepare-manifest.mjs', '0.0.1', options.createdAt, commit];
   const result = JSON.parse(run(process.execPath, args)); assert.equal(result.releaseAdmitted, false);
-  const history = readHistory(join(root, 'ecosystem/releases'));
-  assert.equal(history[0].snapshot.components[0].name, '@konitif/core');
-  assert.equal(history[0].registrySourceCommit, commit);
-  assert.equal(spawnSync(process.execPath, args, { cwd: root }).status, 1);
+  const staged = JSON.parse(readFileSync(join(result.path, 'manifest.json'), 'utf8'));
+  assert.equal(staged.snapshot.components[0].name, '@konitif/core');
+  assert.equal(staged.registrySourceCommit, commit);
+  assert.equal(readHistory(join(root, 'ecosystem/releases')).length, 0);
+  const again = JSON.parse(run(process.execPath, args));
+  assert.notEqual(again.path, result.path);
+  assert.equal(again.sha256, result.sha256);
 });
