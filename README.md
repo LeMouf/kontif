@@ -1,30 +1,39 @@
 # KONITIF ecosystem registry
 
-This repository owns ecosystem membership declarations, not component code or
-the website. Repository spelling is `LeMouf/kontif`; the ecosystem is KONITIF.
+A versioned directory of KONITIF components and their independent distributions.
 
-Starting point: a Core-only **draft**, a strict offline registry validator and
-tests. This is not an exhaustive inventory or an official ecosystem release.
-Other components, release manifests and website projection remain pending.
-The `validate` CI job runs these offline checks on pull requests and main, using
-cached Node 24.20.0 and the checkout revision already used by Core. It installs
-no npm dependency or runtime and fails if that cached runtime is unavailable.
-GitHub still obtains the runner and checkout action; this is not an air-gapped CI.
-Branch protection must separately require this check; a workflow does not protect
-main by itself. No publication step is present.
+The registry connects stable component identities to repositories, exact versions,
+source revisions and artifact references. It is a collection of references, not
+a bundle of package code.
 
-With an already installed Node.js 22 or newer, no dependency installation:
+## Explore
+
+- [Component registry](ecosystem/registry.json)
+- [Registry format](ecosystem/README.md)
+- [Reference manifests](ecosystem/releases/README.md)
+
+The current registry is a Core-only draft. No official ecosystem release is
+available yet.
+
+## Validate locally
+
+Requires Node.js 22 or newer. No package installation is needed.
 
 ```sh
-node --test tests/*.test.mjs
 node scripts/validate-registry.mjs ecosystem/registry.json
+node scripts/validate-manifests.mjs ecosystem/releases
+node --test tests/*.test.mjs
 ```
 
-Validation reports structural consistency and a deterministic content digest.
-It does not verify remote availability, signatures, governance approval or
-publication. `--release` deliberately fails: release admission is not implemented.
-No network operation or file write is performed by the validator.
+Validation checks reference consistency and content digests. It does not grant
+licence rights or certify the referenced artifacts.
 
-See [the registry contract](ecosystem/README.md) and [baseline](BASELINE.md).
-Source-available under PolyForm Noncommercial 1.0.0; not OSI open source.
-Public access does not grant a separate commercial or partner licence.
+## Contribute
+
+Changes are reviewed through pull requests. See the [maintainer guide](MAINTAINING.md)
+for validation and repository configuration.
+
+## Licence
+
+[PolyForm Noncommercial 1.0.0](LICENSE.md). Source-available, not OSI open source.
+Commercial use requires a separate written licence.

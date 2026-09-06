@@ -23,3 +23,5 @@ jobs:
         run: node --test tests/*.test.mjs
       - name: Validate current draft
         run: node scripts/validate-registry.mjs ecosystem/registry.json
+      - name: Validate reference manifest bundles
+        run: node scripts/validate-manifests.mjs ecosystem/releases
