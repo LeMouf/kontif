@@ -27,13 +27,18 @@
       "dependencies": [],
       "evidence": [
         {
-          "claim": "Core publication run previously observed successful; artifact digest recorded from that publication.",
+          "claim": "npm version metadata declares Core 0.284.2, its repository, licence, artifact URL and matching integrity digest.",
+          "url": "https://registry.npmjs.org/@konitif%2fcore/0.284.2",
+          "status": "recorded"
+        },
+        {
+          "claim": "Successful Core publication workflow for source commit 4ef38c97e7ce9d79587987b7e86a59017c777666.",
           "url": "https://github.com/LeMouf/konitif-core/actions/runs/34027347602",
           "status": "recorded"
         }
       ],
-      "unknowns": ["Ownership evidence remains to be formalized.", "Remote availability and attestation signatures are not checked by this offline registry."]
+      "unknowns": ["Ownership evidence remains to be formalized.", "Cryptographic provenance signature verification is not recorded."]
     }
   ],
-  "unknowns": ["Core-only draft; broader ecosystem membership is not yet inventoried here.", "Release version and approval policy remain undecided."]
+  "unknowns": ["Core-only draft; broader ecosystem membership is not yet inventoried here.", "First ecosystem release version and publication workflow remain to be defined."]
 }
