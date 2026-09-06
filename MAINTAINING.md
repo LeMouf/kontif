@@ -35,6 +35,9 @@ See [GitHub's branch protection documentation](https://docs.github.com/en/reposi
 No npm secret or publishing environment is needed for reference validation.
 Official release publication and tag protection must be configured as part of a
 separate approved release workflow; the current tools cannot admit `released`.
+See [release admission policy](RELEASE_POLICY.md) for the confirmed manual approver,
+exact approval subject and remaining activation requirements. The proposed
+`ecosystem-release` environment is not needed for the existing validation CI.
 
 ## Public documentation
 
