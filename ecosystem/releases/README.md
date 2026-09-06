@@ -38,6 +38,17 @@ detected by its self-declared hashes alone. Git protections and approval remain
 necessary. Local validation does not prove the source commit matches a manually
 authored snapshot, remote tag existence, signatures or ownership.
 
-Current CI validates stored bundles and tests adversarial history changes. Enforcing
-comparison against the PR base and verifying every input commit is a subsequent
-Git admission step. No official publication workflow is enabled.
+CI compares committed bundles against the PR base (or the previous main commit
+for a push). Existing blobs must remain identical; every snapshot must match the
+registry at its declared ancestor commit. Full Git history is fetched by checkout;
+validation itself does not access the network. A missing baseline fails closed.
+Manual workflow dispatch compares HEAD with itself and checks source consistency,
+not changes since a prior revision. For an explicit local comparison:
+
+```sh
+node scripts/check-manifest-history.mjs BASE_SHA HEAD_SHA
+```
+
+Protect the `validate` check and review changes to validation code and workflows:
+repository-owned CI is not tamper-proof against a change that disables its own
+checks. No official publication workflow is enabled.

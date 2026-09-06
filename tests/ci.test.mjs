@@ -10,6 +10,9 @@ test('CI validates with read-only permissions and no dependency installation', (
   const workflow = readFileSync(new URL('../.github/workflows/ci.yml', import.meta.url), 'utf8');
   assert.match(workflow, /contents: read/);
   assert.match(workflow, /persist-credentials: false/);
+  assert.match(workflow, /fetch-depth: 0/);
+  assert.match(workflow, /github\.event\.pull_request\.base\.sha/);
+  assert.match(workflow, /node scripts\/check-manifest-history\.mjs "\$MANIFEST_BASE_SHA" "\$MANIFEST_HEAD_SHA"/);
   assert.match(workflow, /node --test tests\/\*\.test\.mjs/);
   assert.match(workflow, /node scripts\/validate-registry\.mjs ecosystem\/registry\.json/);
   assert.doesNotMatch(workflow, /setup-node|npm (?:ci|install|publish)|pnpm|npx|curl|wget/);

@@ -8,6 +8,13 @@ runner tool cache; absence causes failure, not a runtime download. No npm instal
 or publication step is configured. The pinned checkout action and runner are
 provided by GitHub, so this is not an air-gapped execution environment.
 
+The same `validate` check compares manifest blobs to the PR base and verifies
+snapshot source commits. Checkout fetches full history; the validator needs no
+network access. On main pushes the baseline is the previous push SHA. Manual
+dispatch checks the current commit against itself, not against an earlier release.
+Review workflow and validation-code changes explicitly, since these are part of
+the enforcement mechanism. No additional required check name is introduced.
+
 ## GitHub configuration
 
 In Settings > Branches, add a branch protection rule for `main`:
