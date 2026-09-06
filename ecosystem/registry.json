@@ -27,6 +27,11 @@
       "dependencies": [],
       "evidence": [
         {
+          "claim": "Registry signature and attestation verified on 2026-09-06 with npm audit signatures (npm 10.9.4). The provenance subject matches the Core 0.284.2 archive SHA-512 and identifies source commit 4ef38c97e7ce9d79587987b7e86a59017c777666, tag v0.284.2 and publish.yml.",
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@konitif%2fcore@0.284.2",
+          "status": "recorded"
+        },
+        {
           "claim": "npm version metadata declares Core 0.284.2, its repository, licence, artifact URL and matching integrity digest.",
           "url": "https://registry.npmjs.org/@konitif%2fcore/0.284.2",
           "status": "recorded"
@@ -37,7 +42,7 @@
           "status": "recorded"
         }
       ],
-      "unknowns": ["Ownership evidence remains to be formalized.", "Cryptographic provenance signature verification is not recorded."]
+      "unknowns": ["Ownership evidence remains to be formalized."]
     }
   ],
   "unknowns": ["Core-only draft; broader ecosystem membership is not yet inventoried here.", "First ecosystem release version and publication workflow remain to be defined."]
