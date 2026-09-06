@@ -1,0 +1,25 @@
+name: Ecosystem registry validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # Same reviewed revision as Core
+        with:
+          persist-credentials: false
+      - name: Select existing cached Node
+        run: bash scripts/select-ci-runtime.sh
+      - name: Test offline contracts and external consumer
+        run: node --test tests/*.test.mjs
+      - name: Validate current draft
+        run: node scripts/validate-registry.mjs ecosystem/registry.json
