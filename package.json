@@ -1,0 +1,10 @@
+{
+  "name": "konitif-ecosystem-registry",
+  "private": true,
+  "type": "module",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "validate": "node scripts/validate-registry.mjs ecosystem/registry.json"
+  }
+}
