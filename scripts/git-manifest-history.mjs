@@ -43,6 +43,7 @@ export function validateGitManifestHistory(cwd, base, head) {
   const previous = manifests(oldFiles), current = manifests(newFiles);
   validateHistory(current, previous);
   for (const m of current) {
+    if (!oldFiles.has(`ecosystem/releases/${m.version}/manifest.json`)) check(m.status === 'candidate', 'New permanent manifest must be a complete candidate');
     git('merge-base', '--is-ancestor', m.registrySourceCommit, head);
     const snapshot = JSON.parse(git('show', `${m.registrySourceCommit}:ecosystem/registry.json`));
     check(canonicalRegistry(snapshot) === canonicalRegistry(m.snapshot), 'Snapshot does not match declared registry source commit');
