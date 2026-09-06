@@ -17,6 +17,7 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # Same reviewed revision as Core
         with:
           persist-credentials: false
+          fetch-depth: 0
       - name: Select existing cached Node
         run: bash scripts/select-ci-runtime.sh
       - name: Test offline contracts and external consumer
@@ -25,3 +26,8 @@ jobs:
         run: node scripts/validate-registry.mjs ecosystem/registry.json
       - name: Validate reference manifest bundles
         run: node scripts/validate-manifests.mjs ecosystem/releases
+      - name: Protect committed manifest history and source references
+        env:
+          MANIFEST_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before || github.sha }}
+          MANIFEST_HEAD_SHA: ${{ github.sha }}
+        run: node scripts/check-manifest-history.mjs "$MANIFEST_BASE_SHA" "$MANIFEST_HEAD_SHA"
