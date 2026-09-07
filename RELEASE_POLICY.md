@@ -1,5 +1,27 @@
 # Ecosystem release admission
 
+## Optional snapshot, not current scope authority
+
+The current `ecosystem/registry.json` defines ecosystem membership independently
+of any manifest, tag or global release. Every `included` entry is a voluntary
+scope decision even while registry technical status is `draft`. A release is an
+optional evidence and stabilization snapshot, not a prerequisite for current
+scope, inclusion or registry evolution. Membership itself grants no commercial
+rights: actual grants come only from an applicable public licence or a separate
+agreement. A partner agreement may refer to the evolving registry without
+requiring an ecosystem release.
+
+This separation applies to every partnership type. First Partner is one
+application of the common framework; neither that agreement nor any other
+partner category defines a separate registry or an implicit release requirement.
+Contract-specific grants remain outside ecosystem release admission.
+
+Legal provenance, accessibility and technical maturity are separate dimensions.
+The stricter evidence gate below applies only to optional release candidates.
+It must not be reused to refuse ordinary `declared` current inclusion. Schema-2
+candidates require reviewed legal provenance; legacy schema-1 historical
+manifests remain readable byte-for-byte and are not newly approved by migration.
+
 ## Authority
 
 LeMouf is the final release approver. Approval is manual and separate from merging

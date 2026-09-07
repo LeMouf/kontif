@@ -23,6 +23,7 @@ export function validateManifest(m) {
   if (m.status === 'candidate') {
     requireValue(m.snapshot.unknowns.length === 0, 'Candidate contains registry unknowns');
     for (const c of m.snapshot.components) {
+      if (m.snapshot.schemaVersion === 2) requireValue(c.legalProvenance.status === 'verified' && c.legalProvenance.unknowns.length === 0, 'Candidate requires reviewed legal provenance; current inclusion does not');
       requireValue(c.unknowns.length === 0 && c.evidence.every(e => e.status === 'recorded'), 'Candidate contains component unknowns');
       requireValue(c.revision.sourceCommit !== null, 'Candidate source is incomplete');
       requireValue(c.kind !== 'package' || (c.revision.version !== null && c.revision.artifact !== null), 'Candidate package is incomplete');

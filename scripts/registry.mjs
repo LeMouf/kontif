@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 const schema = JSON.parse(readFileSync(new URL('../ecosystem/registry.schema.json', import.meta.url), 'utf8'));
+const legacySchema = JSON.parse(readFileSync(new URL('../ecosystem/registry.v1.schema.json', import.meta.url), 'utf8'));
 const keywords = new Set(['$schema', 'title', 'type', 'const', 'enum', 'additionalProperties', 'required', 'properties', 'items', 'minItems', 'uniqueItems', 'minLength', 'pattern']);
 const fail = (path, message) => { throw new Error(`${path}: ${message}`); };
 // Restricted evaluator for this authored schema, not a general JSON Schema library.
@@ -10,6 +11,7 @@ function checkSchema(s) {
   if (s.items) checkSchema(s.items);
 }
 checkSchema(schema);
+checkSchema(legacySchema);
 function shape(value, s, path = '$') {
   const type = value === null ? 'null' : Array.isArray(value) ? 'array' : typeof value;
   if (s.type && ![s.type].flat().includes(type)) fail(path, 'wrong type');
@@ -46,7 +48,8 @@ function date(value, path) {
   if (value !== null && (Number.isNaN(Date.parse(value)) || new Date(value).toISOString().slice(0, 10) !== value)) fail(path, 'invalid date');
 }
 export function validateRegistry(registry, previous = null) {
-  shape(registry, schema);
+  shape(registry, registry?.schemaVersion === 1 ? legacySchema : schema);
+  if (previous?.schemaVersion === 2 && registry.schemaVersion !== 2) fail('$', 'schema downgrade refused');
   const entries = registry.components;
   sortedUnique(entries.map(c => c.id), 'components');
   const ids = new Map(entries.map(c => [c.id, c]));
@@ -59,6 +62,15 @@ export function validateRegistry(registry, previous = null) {
       names.add(name);
     }
     date(c.introducedOn, c.id); date(c.retiredOn, c.id);
+    if (registry.schemaVersion === 2) {
+      const legal = c.legalProvenance;
+      date(legal.qualifiedOn, `${c.id}.legalProvenance.qualifiedOn`);
+      if (legal.qualifiedOn < c.introducedOn) fail(c.id, 'qualification predates introduction');
+      for (const evidence of legal.evidence) publicUrl(evidence.reference, c.id);
+      if (legal.status === 'verified' && (!legal.evidence.length || legal.unknowns.length || !legal.qualifiedBy)) fail(c.id, 'verified requires reviewed evidence, reviewer and no legal unknowns');
+      if (['declared', 'disputed'].includes(legal.status) && !legal.unknowns.length) fail(c.id, 'unconsolidated legal status requires explicit unknowns');
+      if (legal.status === 'excluded' && c.membership === 'included') fail(c.id, 'legally excluded component cannot be included');
+    }
     if (['removed', 'replaced'].includes(c.membership) !== (c.retiredOn !== null)) fail(c.id, 'retirement date/status mismatch');
     if (c.retiredOn && c.retiredOn < c.introducedOn) fail(c.id, 'retired before introduction');
     if ((c.membership === 'replaced') !== (c.replacedBy !== null)) fail(c.id, 'replacement/status mismatch');
@@ -80,17 +92,28 @@ export function validateRegistry(registry, previous = null) {
   }
   if (previous !== null) {
     validateRegistry(previous);
+    if (registry.schemaVersion === 2) {
+      for (const next of entries.filter(c => c.legalProvenance.status === 'disputed' && c.membership === 'included')) {
+        const old = previous.components.find(c => c.id === next.id);
+        if (!old || old.membership !== 'included') fail(next.id, 'new disputed inclusion refused');
+        if (encode([next.revision, next.repository, next.license, next.dependencies, next.accessibility]) !== encode([old.revision, old.repository, old.license, old.dependencies, old.accessibility ?? next.accessibility])) fail(next.id, 'disputed inclusion cannot expand or change exploitable revision');
+      }
+    }
     for (const old of previous.components) {
       const next = ids.get(old.id);
       if (!next) fail(old.id, 'silent removal: retain tombstone');
       if (next.introducedOn !== old.introducedOn || next.kind !== old.kind || next.family !== old.family) fail(old.id, 'identity continuity changed');
       if (old.name !== next.name && !next.aliases.includes(old.name)) fail(old.id, 'rename must retain old name as alias');
       if (old.aliases.some(a => !next.aliases.includes(a) && a !== next.name)) fail(old.id, 'historical alias lost');
+      if (old.legalProvenance && next.legalProvenance.qualifiedOn < old.legalProvenance.qualifiedOn) fail(old.id, 'legal qualification date regressed');
       if (['removed', 'replaced'].includes(old.membership) &&
           (next.membership !== old.membership || next.retiredOn !== old.retiredOn || next.replacedBy !== old.replacedBy)) fail(old.id, 'tombstone changed');
     }
   }
-  return { valid: true, status: 'draft', releaseAdmitted: false,
+  return { valid: true, status: registry.status, releaseAdmitted: false,
+    included: entries.filter(c => c.membership === 'included').map(c => c.id),
+    suspended: entries.filter(c => c.membership === 'included' && c.legalProvenance?.status === 'disputed').map(c => c.id),
+    historyChecked: previous !== null,
     unchecked: ['remote availability', 'artifact bytes and signatures', 'ownership and governance approval'] };
 }
 function encode(value) {
