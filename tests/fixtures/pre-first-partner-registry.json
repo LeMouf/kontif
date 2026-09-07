@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 1,
   "ecosystem": "KONITIF",
   "status": "draft",
   "components": [
@@ -40,19 +40,7 @@
       "unknowns": [
         "Cryptographic provenance signature verification is not recorded.",
         "Independent ownership and third-party contribution review are not recorded."
-      ],
-      "accessibility": "public",
-      "legalProvenance": {
-        "status": "declared",
-        "rightsHolder": "Maxime Mouflard",
-        "licensingAuthority": "Declared personal authorship and ownership by the licensor; independent chain-of-title and third-party rights review remain to be consolidated.",
-        "evidence": [],
-        "unknowns": [
-          "Independent ownership verification and third-party contribution review remain to be consolidated.",
-          "No independently reviewed evidence of licensing authority is recorded."
-        ],
-        "qualifiedOn": "2026-09-07"
-      }
+      ]
     },
     {
       "id": "konitif:core",
@@ -91,19 +79,7 @@
       "unknowns": [
         "Ownership evidence remains to be formalized.",
         "Cryptographic provenance signature verification is not recorded."
-      ],
-      "accessibility": "public",
-      "legalProvenance": {
-        "status": "declared",
-        "rightsHolder": "Maxime Mouflard",
-        "licensingAuthority": "Declared personal authorship and ownership by the licensor; independent chain-of-title and third-party rights review remain to be consolidated.",
-        "evidence": [],
-        "unknowns": [
-          "Independent ownership verification and third-party contribution review remain to be consolidated.",
-          "No independently reviewed evidence of licensing authority is recorded."
-        ],
-        "qualifiedOn": "2026-09-07"
-      }
+      ]
     }
   ],
   "unknowns": [

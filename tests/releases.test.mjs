@@ -78,6 +78,7 @@ test('external consumer reads archived references without current registry', () 
   cpSync(new URL('../scripts', import.meta.url), join(root, 'scripts'), { recursive: true });
   mkdirSync(join(root, 'ecosystem'));
   cpSync(new URL('../ecosystem/registry.schema.json', import.meta.url), join(root, 'ecosystem/registry.schema.json'));
+  cpSync(new URL('../ecosystem/registry.v1.schema.json', import.meta.url), join(root, 'ecosystem/registry.v1.schema.json'));
   const bundles = join(root, 'bundles'); mkdirSync(bundles); writeManifest(bundles, first());
   const result = spawnSync(process.execPath, ['scripts/validate-manifests.mjs', 'bundles'], { cwd: root, encoding: 'utf8' });
   assert.equal(result.error, undefined); assert.equal(result.status, 0, result.stderr);

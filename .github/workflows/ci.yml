@@ -22,8 +22,12 @@ jobs:
         run: bash scripts/select-ci-runtime.sh
       - name: Test offline contracts and external consumer
         run: node --test tests/*.test.mjs
-      - name: Validate current draft
+      - name: Validate current registry
         run: node scripts/validate-registry.mjs ecosystem/registry.json
+      - name: Protect registry continuity and disputed inclusion boundary
+        env:
+          REGISTRY_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before || github.sha }}
+        run: node scripts/check-registry-history.mjs "$REGISTRY_BASE_SHA"
       - name: Validate reference manifest bundles
         run: node scripts/validate-manifests.mjs ecosystem/releases
       - name: Protect committed manifest history and source references

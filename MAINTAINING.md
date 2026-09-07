@@ -1,5 +1,55 @@
 # Maintainer guide
 
+## Required policy for every future component repository
+
+Register references, never copies of component code. Review a current registry
+change independently of whether any ecosystem release is planned. An `included`
+entry expresses voluntary inclusion; it does not itself grant commercial rights.
+
+Apply this policy uniformly across partnership types. First Partner is a use
+case, not the name or owner of the registry contract. Do not specialize component
+membership, legal provenance or accessibility for a particular partner category.
+Keep agreement-specific grants and nominative evidence in separate appropriate
+supports rather than adding partner fields or duplicating the current registry.
+
+Before adding a component or changing its accessible revision:
+
+- Preserve stable IDs, aliases, dependencies and existing tombstones.
+- Set `accessibility` to `public`, `authorized-partners` or `restricted`.
+- Record `legalProvenance`: declared holder, licensing authority, status, public
+  evidence references, unresolved consolidation actions and qualification date.
+- Use `declared` for the licensor's assertion, not `verified` by inference from
+  a successful build, npm publication, signature or mature technical status.
+- Use `verified` only after a human review of sufficient rights and licensing
+  authority evidence; identify the reviewer and evidence. The validator checks
+  completeness, not truth, legal sufficiency or reviewer authentication.
+- A disputed existing inclusion stays recorded and suspended for new exploitable
+  revisions. New disputed inclusions are refused against the trusted baseline.
+  Resolve the dispute through explicit human qualification before resuming.
+- A legally excluded element cannot remain `included`; retain its record and
+  historical identifiers. Do not infer changes to existing contractual rights.
+- Never put partner names, nominative access proofs, private contract content,
+  tokens or private journal locations in the public registry. Keep nominative
+  access evidence in a separate private support; public accessibility is only
+  a generic declaration, not proof of a particular recipient's access.
+
+Run all checks before review (BASE_SHA is the trusted PR base commit):
+
+```sh
+node --test tests/*.test.mjs
+node scripts/validate-registry.mjs ecosystem/registry.json
+node scripts/check-registry-history.mjs BASE_SHA
+node scripts/validate-manifests.mjs ecosystem/releases
+node scripts/check-manifest-history.mjs BASE_SHA HEAD_SHA
+```
+
+The registry history check also runs in `validate` CI and requires current schema
+2. General readers retain schema 1 support solely for historical compatibility.
+A standalone shape check cannot establish whether an inclusion is new; review
+against a trusted predecessor is mandatory. Git dates are historical evidence,
+not a trusted legal timestamp: record the exact applicable commit and verify
+any contractual effective-date interpretation separately. No release is required.
+
 ## Continuous integration
 
 The required check is `validate`, provided by GitHub Actions. It runs tests and
