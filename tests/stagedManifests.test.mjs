@@ -10,7 +10,7 @@ import { stageManifest, recordCandidate } from '../scripts/staged-manifests.mjs'
 function fixture() {
   const root = mkdtempSync(join(tmpdir(), 'candidate-record-test-'));
   const history = join(root, 'ecosystem/releases'); mkdirSync(history, { recursive: true });
-  const registry = JSON.parse(readFileSync(new URL('../ecosystem/registry.json', import.meta.url), 'utf8'));
+  const registry = JSON.parse(readFileSync(new URL('./fixtures/core-registry.json', import.meta.url), 'utf8'));
   // Synthetic complete declarations for tests; no real evidence is upgraded.
   registry.unknowns = []; registry.components[0].unknowns = [];
   writeFileSync(join(root, 'ecosystem/registry.json'), JSON.stringify(registry));

@@ -6,7 +6,7 @@ import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { createManifest, manifestBytes, manifestDigest } from '../scripts/releases.mjs';
 import { validateGitManifestHistory } from '../scripts/git-manifest-history.mjs';
-const registry = JSON.parse(readFileSync(new URL('../ecosystem/registry.json', import.meta.url), 'utf8'));
+const registry = JSON.parse(readFileSync(new URL('./fixtures/core-registry.json', import.meta.url), 'utf8'));
 // Synthetic complete declarations, not a change to the real registry evidence.
 registry.unknowns = []; registry.components[0].unknowns = [];
 function fixture() {

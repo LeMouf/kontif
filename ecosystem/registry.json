@@ -4,6 +4,45 @@
   "status": "draft",
   "components": [
     {
+      "id": "konitif:composition",
+      "name": "@konitif/composition",
+      "aliases": [],
+      "kind": "package",
+      "family": "konitif",
+      "role": "Amodal workflow composition contracts, validation and commit boundary.",
+      "membership": "included",
+      "repository": "https://github.com/LeMouf/konitif-composition",
+      "revision": {
+        "version": "0.284.2",
+        "sourceCommit": "57277dae62e3ba94a1c48f9ccdd75dbba96ff308",
+        "artifact": {
+          "url": "https://registry.npmjs.org/@konitif/composition/-/composition-0.284.2.tgz",
+          "integrity": "sha512-SpLg8LSY93xDNwSUBWitc+LUmlVMjEzesKyWovC+gB+qxF1JHoWFbV6h6kSTFoLrU3MUH++v3oDHsKw41OtKCA=="
+        }
+      },
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "introducedOn": "2026-09-07",
+      "retiredOn": null,
+      "replacedBy": null,
+      "dependencies": [],
+      "evidence": [
+        {
+          "claim": "Public npm metadata records Composition 0.284.2 and the artifact digest; archive SHA-512 matched this digest when checked on 2026-09-07.",
+          "url": "https://registry.npmjs.org/@konitif%2fcomposition/0.284.2",
+          "status": "recorded"
+        },
+        {
+          "claim": "Successful publication workflow for source commit 57277dae62e3ba94a1c48f9ccdd75dbba96ff308.",
+          "url": "https://github.com/LeMouf/konitif-composition/actions/runs/34115558369",
+          "status": "recorded"
+        }
+      ],
+      "unknowns": [
+        "Cryptographic provenance signature verification is not recorded.",
+        "Independent ownership and third-party contribution review are not recorded."
+      ]
+    },
+    {
       "id": "konitif:core",
       "name": "@konitif/core",
       "aliases": [],
@@ -37,8 +76,14 @@
           "status": "recorded"
         }
       ],
-      "unknowns": ["Ownership evidence remains to be formalized.", "Cryptographic provenance signature verification is not recorded."]
+      "unknowns": [
+        "Ownership evidence remains to be formalized.",
+        "Cryptographic provenance signature verification is not recorded."
+      ]
     }
   ],
-  "unknowns": ["Core-only draft; broader ecosystem membership is not yet inventoried here.", "First ecosystem release version and publication workflow remain to be defined."]
+  "unknowns": [
+    "Core and Composition draft; broader ecosystem membership is not yet inventoried here.",
+    "First ecosystem release version and publication workflow remain to be defined."
+  ]
 }
