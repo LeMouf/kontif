@@ -113,10 +113,63 @@
         ],
         "qualifiedOn": "2026-09-08"
       }
+    },
+    {
+      "id": "konitif:tools",
+      "name": "@konitif/tools",
+      "aliases": [],
+      "kind": "package",
+      "family": "konitif",
+      "role": "Product-neutral tool contracts, capability declarations and implementation bindings.",
+      "membership": "included",
+      "repository": "https://github.com/LeMouf/konitif-tools",
+      "revision": {
+        "version": "0.284.2",
+        "sourceCommit": "10bfcf29447ce8967fbd172121eea5b9fdd13705",
+        "artifact": {
+          "url": "https://registry.npmjs.org/@konitif/tools/-/tools-0.284.2.tgz",
+          "integrity": "sha512-YQj/VCyZ6oE95J2uVRHY46X8QR1a1EuNl7Z3Ycf++OPd3BPAjlTaxQpJGLPU+yTMOzgf3LKEbLC0CNmmHC6SAQ=="
+        }
+      },
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "introducedOn": "2026-09-08",
+      "retiredOn": null,
+      "replacedBy": null,
+      "dependencies": [
+        "konitif:core"
+      ],
+      "evidence": [
+        {
+          "claim": "Public npm metadata checked on 2026-09-08 records Tools 0.284.2, its artifact integrity and its exact dependency on Core 0.284.2. This metadata check does not verify artifact bytes or provenance signatures.",
+          "url": "https://registry.npmjs.org/@konitif%2ftools/0.284.2",
+          "status": "recorded"
+        },
+        {
+          "claim": "Successful Tools publication workflow for source commit 10bfcf29447ce8967fbd172121eea5b9fdd13705, checked on 2026-09-08.",
+          "url": "https://github.com/LeMouf/konitif-tools/actions/runs/34163191926",
+          "status": "recorded"
+        }
+      ],
+      "unknowns": [
+        "Cryptographic provenance signature verification is not recorded.",
+        "Independent ownership and third-party contribution review are not recorded."
+      ],
+      "accessibility": "public",
+      "legalProvenance": {
+        "status": "declared",
+        "rightsHolder": "Maxime Mouflard",
+        "licensingAuthority": "Declared personal authorship and ownership by the licensor; independent chain-of-title and third-party rights review remain to be consolidated.",
+        "evidence": [],
+        "unknowns": [
+          "Independent ownership verification and third-party contribution review remain to be consolidated.",
+          "No independently reviewed evidence of licensing authority is recorded."
+        ],
+        "qualifiedOn": "2026-09-08"
+      }
     }
   ],
   "unknowns": [
-    "Core and Composition draft; broader ecosystem membership is not yet inventoried here.",
+    "Core, Composition and Tools draft; broader ecosystem membership is not yet inventoried here.",
     "First ecosystem release version and publication workflow remain to be defined."
   ]
 }
