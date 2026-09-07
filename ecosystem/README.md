@@ -118,7 +118,10 @@ embedded digest. No external canonicalization standard is claimed.
 
 ## Migration and optional releases
 
-Core and Composition retain every previous field, reference and unknown. The
+The initial schema-2 migration retained every previous field, reference and
+unknown for Core and Composition. That migration is tested on frozen fixtures;
+the current registry may subsequently record new evidence and resolve related
+unknowns through reviewed changes. Historical snapshots remain unchanged. The
 licensor's declaration of personal rights is recorded as `declared`; no evidence
 is invented and no element is promoted to `verified`. Accessibility is public,
 consistent with their existing public distribution references. The technical
