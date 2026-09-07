@@ -9,6 +9,7 @@ import { spawnSync } from 'node:child_process';
 test('CI validates with read-only permissions and no dependency installation', () => {
   const workflow = readFileSync(new URL('../.github/workflows/ci.yml', import.meta.url), 'utf8');
   assert.match(workflow, /contents: read/);
+  assert.match(workflow, /actions\/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1/);
   assert.match(workflow, /persist-credentials: false/);
   assert.match(workflow, /fetch-depth: 0/);
   assert.match(workflow, /github\.event\.pull_request\.base\.sha/);
