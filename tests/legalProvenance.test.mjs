@@ -6,7 +6,9 @@ import { createHash } from 'node:crypto';
 import { validateRegistry, registryDigest } from '../scripts/registry.mjs';
 import { createManifest } from '../scripts/releases.mjs';
 const read = path => JSON.parse(readFileSync(new URL(path, import.meta.url), 'utf8'));
-const current = read('../ecosystem/registry.json');
+// Frozen migration result from 2d605a7151c00ddf1a6e007d57fdd9d2531831ac.
+// Contract fixtures must not freeze the evolving current registry.
+const current = read('./fixtures/post-registry-v2-migration.json');
 const previous = read('./fixtures/pre-first-partner-registry.json');
 const fresh = () => structuredClone(current);
 
@@ -22,6 +24,21 @@ test('migration preserves every historical field and declares no reviewed legal 
     assert.ok(legalProvenance.unknowns.length);
   }
   assert.deepEqual(current.unknowns, previous.unknowns);
+});
+test('current registry preserves continuity without freezing evidence or unknowns', () => {
+  assert.equal(validateRegistry(read('../ecosystem/registry.json'), current).historyChecked, true);
+});
+test('technical evidence can evolve without changing legal provenance or historical fixtures', () => {
+  const original = registryDigest(current);
+  const r = fresh(), core = r.components.find(c => c.id === 'konitif:core');
+  core.evidence.push({claim:'Synthetic test-only technical verification',url:'https://github.com/example/evidence',status:'recorded'});
+  core.unknowns = core.unknowns.filter(u => u !== 'Cryptographic provenance signature verification is not recorded.');
+  validateRegistry(r, current);
+  assert.deepEqual(core.legalProvenance, current.components.find(c => c.id === core.id).legalProvenance);
+  assert.equal(registryDigest(current), original);
+  assert.notEqual(registryDigest(r), original);
+  const removed = structuredClone(r); removed.components.pop();
+  assert.throws(() => validateRegistry(removed, current), /silent removal/);
 });
 test('technical status and accessibility do not change included scope or grant release', () => {
   for (const status of ['draft','active','archived']) for (const access of ['public','authorized-partners','restricted']) {
