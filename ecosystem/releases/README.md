@@ -8,7 +8,10 @@ or artifact bytes. Components retain their independent versions and authorities.
 The closed schema-1 envelope is enforced by `scripts/releases.mjs`: ecosystem,
 version, draft/candidate status, explicit UTC timestamp, full registry input commit,
 expected tag, predecessor digest and registry snapshot. The snapshot uses registry
-schema 1. A standalone JSON Schema for the envelope remains to be extracted.
+schema 1 for historical documents or schema 2 for new current snapshots. Historical
+bytes and digests are never migrated. A standalone JSON Schema for the envelope
+remains to be extracted. Releases are optional: none is needed for the current
+registry or the scope of its `included` entries to exist or evolve.
 
 Prepare only after choosing an explicit version and timestamp:
 

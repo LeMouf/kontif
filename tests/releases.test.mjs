@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { createManifest, validateManifest, manifestBytes, manifestDigest, validateHistory, readHistory, writeManifest } from '../scripts/releases.mjs';
-const registry = JSON.parse(readFileSync(new URL('../ecosystem/registry.json', import.meta.url), 'utf8'));
+const registry = JSON.parse(readFileSync(new URL('./fixtures/core-registry.json', import.meta.url), 'utf8'));
 const options = { version: '0.0.1', createdAt: '2026-09-06T00:00:00.000Z', registrySourceCommit: 'a'.repeat(40) };
 // Synthetic fixture versions/commits, never official ecosystem releases.
 const first = () => createManifest(registry, options);
@@ -78,6 +78,7 @@ test('external consumer reads archived references without current registry', () 
   cpSync(new URL('../scripts', import.meta.url), join(root, 'scripts'), { recursive: true });
   mkdirSync(join(root, 'ecosystem'));
   cpSync(new URL('../ecosystem/registry.schema.json', import.meta.url), join(root, 'ecosystem/registry.schema.json'));
+  cpSync(new URL('../ecosystem/registry.v1.schema.json', import.meta.url), join(root, 'ecosystem/registry.v1.schema.json'));
   const bundles = join(root, 'bundles'); mkdirSync(bundles); writeManifest(bundles, first());
   const result = spawnSync(process.execPath, ['scripts/validate-manifests.mjs', 'bundles'], { cwd: root, encoding: 'utf8' });
   assert.equal(result.error, undefined); assert.equal(result.status, 0, result.stderr);
@@ -87,6 +88,7 @@ test('external consumer reads archived references without current registry', () 
 test('preparation reads committed registry and stages repeatable drafts outside permanent history', () => {
   const root = mkdtempSync(join(tmpdir(), 'manifest-git-input-'));
   for (const dir of ['scripts', 'ecosystem']) cpSync(new URL(`../${dir}`, import.meta.url), join(root, dir), { recursive: true });
+  writeFileSync(join(root, 'ecosystem/registry.json'), JSON.stringify(registry));
   const run = (command, args) => {
     const result = spawnSync(command, args, { cwd: root, encoding: 'utf8' });
     assert.equal(result.error, undefined); assert.equal(result.status, 0, result.stderr); return result.stdout.trim();

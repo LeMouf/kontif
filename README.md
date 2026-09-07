@@ -1,6 +1,6 @@
 # KONITIF ecosystem registry
 
-A versioned directory of KONITIF components and their independent distributions.
+A dynamic, Git-versioned directory of KONITIF components and their independent distributions.
 
 The registry connects stable component identities to repositories, exact versions,
 source revisions and artifact references. It is a collection of references, not
@@ -12,8 +12,13 @@ a bundle of package code.
 - [Registry format](ecosystem/README.md)
 - [Reference manifests](ecosystem/releases/README.md)
 
-The current registry is a Core-only draft. No official ecosystem release is
+The current registry references Core and Composition. No official ecosystem release is
 available yet.
+
+Entries marked `included` define current ecosystem membership without requiring
+an ecosystem release. Accessibility and declared legal provenance are recorded
+separately. Membership does not grant commercial rights; those depend on the
+applicable licence or agreement. Releases are optional evidence snapshots.
 
 ## Validate locally
 
