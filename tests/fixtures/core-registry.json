@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "ecosystem": "KONITIF",
+  "status": "draft",
+  "components": [
+    {
+      "id": "konitif:core",
+      "name": "@konitif/core",
+      "aliases": [],
+      "kind": "package",
+      "family": "konitif",
+      "role": "Amodal contracts and local primitives for KONITIF applications.",
+      "membership": "included",
+      "repository": "https://github.com/LeMouf/konitif-core",
+      "revision": {
+        "version": "0.284.2",
+        "sourceCommit": "4ef38c97e7ce9d79587987b7e86a59017c777666",
+        "artifact": {
+          "url": "https://registry.npmjs.org/@konitif/core/-/core-0.284.2.tgz",
+          "integrity": "sha512-OcvBwJXrSWiRPU+pDBmeGsUikyhFqk1f0OlCpVWJfYbRC8xWICJTBBHh3vkIf/xSfR5lt3YZT0UTq1NoIdMSNQ=="
+        }
+      },
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "introducedOn": "2026-09-06",
+      "retiredOn": null,
+      "replacedBy": null,
+      "dependencies": [],
+      "evidence": [
+        {
+          "claim": "npm version metadata declares Core 0.284.2, its repository, licence, artifact URL and matching integrity digest.",
+          "url": "https://registry.npmjs.org/@konitif%2fcore/0.284.2",
+          "status": "recorded"
+        },
+        {
+          "claim": "Successful Core publication workflow for source commit 4ef38c97e7ce9d79587987b7e86a59017c777666.",
+          "url": "https://github.com/LeMouf/konitif-core/actions/runs/34027347602",
+          "status": "recorded"
+        }
+      ],
+      "unknowns": ["Ownership evidence remains to be formalized.", "Cryptographic provenance signature verification is not recorded."]
+    }
+  ],
+  "unknowns": ["Core-only draft; broader ecosystem membership is not yet inventoried here.", "First ecosystem release version and publication workflow remain to be defined."]
+}

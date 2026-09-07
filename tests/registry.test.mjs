@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { validateRegistry, canonicalRegistry, registryDigest } from '../scripts/registry.mjs';
-const source = JSON.parse(readFileSync(new URL('../ecosystem/registry.json', import.meta.url), 'utf8'));
+const source = JSON.parse(readFileSync(new URL('./fixtures/core-registry.json', import.meta.url), 'utf8'));
 const fresh = () => structuredClone(source);
 
 test('Core draft validates without implying release admission', () => {
@@ -74,7 +74,8 @@ test('external consumer validates without site, Core or checkout dependencies', 
   for (const dir of ['scripts', 'ecosystem']) cpSync(new URL(`../${dir}`, import.meta.url), join(root, dir), { recursive: true });
   const result = spawnSync(process.execPath, ['scripts/validate-registry.mjs', 'ecosystem/registry.json'], { cwd: root, encoding: 'utf8' });
   assert.equal(result.error, undefined); assert.equal(result.status, 0, result.stderr);
-  assert.equal(JSON.parse(result.stdout).sha256, registryDigest(source));
+  const current = JSON.parse(readFileSync(new URL('../ecosystem/registry.json', import.meta.url), 'utf8'));
+  assert.equal(JSON.parse(result.stdout).sha256, registryDigest(current));
   const refused = spawnSync(process.execPath, ['scripts/validate-registry.mjs', 'ecosystem/registry.json', '--release'], { cwd: root, encoding: 'utf8' });
   assert.equal(refused.status, 1); assert.match(refused.stderr, /not implemented/);
 });

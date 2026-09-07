@@ -12,7 +12,7 @@ a bundle of package code.
 - [Registry format](ecosystem/README.md)
 - [Reference manifests](ecosystem/releases/README.md)
 
-The current registry is a Core-only draft. No official ecosystem release is
+The current registry references Core and Composition. No official ecosystem release is
 available yet.
 
 ## Validate locally
