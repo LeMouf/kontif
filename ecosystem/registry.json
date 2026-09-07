@@ -94,19 +94,24 @@
         }
       ],
       "unknowns": [
-        "Ownership evidence remains to be formalized."
+        "Ownership is declared; independent ownership verification and any third-party contribution review remain unrecorded."
       ],
       "accessibility": "public",
       "legalProvenance": {
         "status": "declared",
         "rightsHolder": "Maxime Mouflard",
         "licensingAuthority": "Declared personal authorship and ownership by the licensor; independent chain-of-title and third-party rights review remain to be consolidated.",
-        "evidence": [],
+        "evidence": [
+          {
+            "reference": "https://github.com/LeMouf/kontif/blob/main/ecosystem/core-attribution.md",
+            "claim": "Original Core 0.284.2 code is attributed to Maxime Mouflard on the basis of his declaration of personal authorship and ownership. This is not an independent legal verification or an exhaustive third-party contribution review."
+          }
+        ],
         "unknowns": [
           "Independent ownership verification and third-party contribution review remain to be consolidated.",
           "No independently reviewed evidence of licensing authority is recorded."
         ],
-        "qualifiedOn": "2026-09-07"
+        "qualifiedOn": "2026-09-08"
       }
     }
   ],

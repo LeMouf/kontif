@@ -47,6 +47,10 @@ Each component requires a closed `legalProvenance` object:
 - `licensingAuthority`: stated basis for the power to license.
 - `evidence`: public references with `reference` (HTTPS URL) and `claim`.
   An empty list is honest when no reviewed evidence is available.
+- A recorded attribution declaration may be referenced here while status remains
+  `declared`. A reference is not a finding of verified ownership. For example,
+  [Core attribution](core-attribution.md) identifies the exact version and source
+  commit covered by the declaration, without clearing independent review unknowns.
 - `unknowns`: unresolved questions or consolidation actions.
 - `qualifiedOn`: real calendar date in YYYY-MM-DD.
 - `qualifiedBy`: optional qualifier; required for `verified`.

@@ -20,6 +20,12 @@ Before adding a component or changing its accessible revision:
   evidence references, unresolved consolidation actions and qualification date.
 - Use `declared` for the licensor's assertion, not `verified` by inference from
   a successful build, npm publication, signature or mature technical status.
+- When recording an attribution declaration, state its covered version and source
+  commit, link it from `legalProvenance.evidence`, and retain unresolved independent
+  rights review questions. Update the qualification date without inventing a
+  reviewer. Commit the declaration with its registry reference; a `main` URL only
+  becomes available there after merge. Use the exact registry commit for historical
+  interpretation, not the future contents of that moving URL.
 - Use `verified` only after a human review of sufficient rights and licensing
   authority evidence; identify the reviewer and evidence. The validator checks
   completeness, not truth, legal sufficiency or reviewer authentication.
