@@ -6,6 +6,36 @@ import { createManifest } from '../scripts/releases.mjs';
 const current = JSON.parse(readFileSync(new URL('../ecosystem/registry.json', import.meta.url), 'utf8'));
 const previous = JSON.parse(readFileSync(new URL('./fixtures/core-registry.json', import.meta.url), 'utf8'));
 
+test('Tools is included by immutable distribution reference and resolves its Core dependency', () => {
+  const tools = current.components.find(item => item.id === 'konitif:tools');
+  assert.equal(tools.name, '@konitif/tools');
+  assert.equal(tools.membership, 'included');
+  assert.equal(tools.accessibility, 'public');
+  assert.equal(tools.repository, 'https://github.com/LeMouf/konitif-tools');
+  assert.equal(tools.revision.version, '0.284.2');
+  assert.equal(tools.revision.sourceCommit, '10bfcf29447ce8967fbd172121eea5b9fdd13705');
+  assert.equal(tools.revision.artifact.url, 'https://registry.npmjs.org/@konitif/tools/-/tools-0.284.2.tgz');
+  assert.equal(tools.revision.artifact.integrity, 'sha512-YQj/VCyZ6oE95J2uVRHY46X8QR1a1EuNl7Z3Ycf++OPd3BPAjlTaxQpJGLPU+yTMOzgf3LKEbLC0CNmmHC6SAQ==');
+  assert.deepEqual(tools.dependencies, ['konitif:core']);
+  assert.equal(current.components.find(item => item.id === tools.dependencies[0]).revision.version, '0.284.2');
+  assert.equal(tools.license, 'PolyForm-Noncommercial-1.0.0');
+  assert.equal(tools.legalProvenance.status, 'declared');
+  assert.deepEqual(tools.legalProvenance.evidence, []);
+  assert.ok(tools.legalProvenance.unknowns.length > 0);
+  assert.ok(tools.unknowns.some(value => value.includes('signature verification')));
+  assert.equal(validateRegistry(current, previous).valid, true);
+  assert.equal(validateRegistry(current).releaseAdmitted, false);
+});
+
+test('Tools cannot resolve an absent dependency or infer verified rights from publication', () => {
+  const missing = structuredClone(current);
+  missing.components.find(item => item.id === 'konitif:tools').dependencies = ['konitif:missing'];
+  assert.throws(() => validateRegistry(missing));
+  const promoted = structuredClone(current);
+  promoted.components.find(item => item.id === 'konitif:tools').legalProvenance.status = 'verified';
+  assert.throws(() => validateRegistry(promoted), /reviewed evidence/);
+});
+
 test('current draft adds Composition by reference and preserves the Core baseline', () => {
   assert.equal(validateRegistry(current, previous).valid, true);
   assert.equal(validateRegistry(current).releaseAdmitted, false);
