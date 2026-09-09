@@ -166,10 +166,67 @@
         ],
         "qualifiedOn": "2026-09-08"
       }
+    },
+    {
+      "id": "konitif:widgets",
+      "name": "@konitif/widgets",
+      "aliases": [],
+      "kind": "package",
+      "family": "konitif",
+      "role": "Product-neutral widget definitions, immutable instance catalogs and explicit implementation bindings.",
+      "membership": "included",
+      "repository": "https://github.com/LeMouf/konitif-widgets",
+      "revision": {
+        "version": "0.285.0",
+        "sourceCommit": "d9f2b809d7b8b691ec20cb4f6759e7b924c4ff21",
+        "artifact": {
+          "url": "https://registry.npmjs.org/@konitif/widgets/-/widgets-0.285.0.tgz",
+          "integrity": "sha512-gQexEiCo8cUIUaa6vOt2qOeGM49vutitY47vcgPULDHQ/Lea5AP+5lxOlfQ3ud0M+4zACAHAZdCj6R3iJ8EfaQ=="
+        }
+      },
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "introducedOn": "2026-09-09",
+      "retiredOn": null,
+      "replacedBy": null,
+      "dependencies": [],
+      "evidence": [
+        {
+          "claim": "npm metadata checked on 2026-09-09 records Widgets 0.285.0 with an integrity digest matching the locally tested ESM and TypeScript archive. First publication was local, not a GitHub Actions publication.",
+          "url": "https://registry.npmjs.org/@konitif%2fwidgets/0.285.0",
+          "status": "recorded"
+        },
+        {
+          "claim": "Successful validation CI for the source commit; this is not a publication workflow or a provenance attestation.",
+          "url": "https://github.com/LeMouf/konitif-widgets/actions/runs/34349159067",
+          "status": "recorded"
+        }
+      ],
+      "unknowns": [
+        "This first local publication has no GitHub Actions provenance; registry signature verification is not recorded.",
+        "Trusted Publisher is reported configured by the maintainer; its first OIDC publication remains untested.",
+        "Independent ownership and third-party contribution review are not recorded."
+      ],
+      "accessibility": "public",
+      "legalProvenance": {
+        "status": "declared",
+        "rightsHolder": "Maxime Mouflard",
+        "licensingAuthority": "Personal authorship and code ownership declared by the licensor on 2026-09-09; independent licensing-authority review remains to be consolidated.",
+        "evidence": [
+          {
+            "reference": "https://github.com/LeMouf/kontif/blob/main/ecosystem/konitif-attribution.md",
+            "claim": "Maintainer authorship and ownership declaration recorded locally; not an independent legal verification. The referenced document is pending integration on main."
+          }
+        ],
+        "unknowns": [
+          "Independent ownership verification and third-party contribution review remain to be consolidated.",
+          "No independently reviewed evidence of licensing authority is recorded."
+        ],
+        "qualifiedOn": "2026-09-09"
+      }
     }
   ],
   "unknowns": [
-    "Core, Composition and Tools draft; broader ecosystem membership is not yet inventoried here.",
+    "Core, Composition, Tools and Widgets draft; broader ecosystem membership is not yet inventoried here.",
     "First ecosystem release version and publication workflow remain to be defined."
   ]
 }
