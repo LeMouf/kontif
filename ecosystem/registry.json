@@ -13,22 +13,24 @@
       "membership": "included",
       "repository": "https://github.com/LeMouf/konitif-composition",
       "revision": {
-        "version": "0.284.2",
-        "sourceCommit": "57277dae62e3ba94a1c48f9ccdd75dbba96ff308",
+        "version": "0.284.5",
+        "sourceCommit": "eed1a4d1d4881067d78b4166fd84e051400bc128",
         "artifact": {
-          "url": "https://registry.npmjs.org/@konitif/composition/-/composition-0.284.2.tgz",
-          "integrity": "sha512-SpLg8LSY93xDNwSUBWitc+LUmlVMjEzesKyWovC+gB+qxF1JHoWFbV6h6kSTFoLrU3MUH++v3oDHsKw41OtKCA=="
+          "url": "https://registry.npmjs.org/@konitif/composition/-/composition-0.284.5.tgz",
+          "integrity": "sha512-km8ye1tWgsjSQnzL0HwQ6Oz0Grr0Pc4VQTwD48uvRwfeEXTPMoV06iddSmGgou0HcJwQdReMghk68h0/EVPG9g=="
         }
       },
       "license": "PolyForm-Noncommercial-1.0.0",
       "introducedOn": "2026-09-07",
       "retiredOn": null,
       "replacedBy": null,
-      "dependencies": [],
+      "dependencies": [
+        "konitif:core"
+      ],
       "evidence": [
         {
-          "claim": "Public npm metadata records Composition 0.284.2 and the artifact digest; archive SHA-512 matched this digest when checked on 2026-09-07.",
-          "url": "https://registry.npmjs.org/@konitif%2fcomposition/0.284.2",
+          "claim": "Public npm metadata checked on 2026-09-20 records Composition 0.284.5 and its artifact integrity digest.",
+          "url": "https://registry.npmjs.org/@konitif%2fcomposition/0.284.5",
           "status": "recorded"
         },
         {
@@ -64,11 +66,11 @@
       "membership": "included",
       "repository": "https://github.com/LeMouf/konitif-core",
       "revision": {
-        "version": "0.284.2",
-        "sourceCommit": "4ef38c97e7ce9d79587987b7e86a59017c777666",
+        "version": "0.284.5",
+        "sourceCommit": "d3ad2a2df1fedc8eda6ae91f97774d3d85e423f2",
         "artifact": {
-          "url": "https://registry.npmjs.org/@konitif/core/-/core-0.284.2.tgz",
-          "integrity": "sha512-OcvBwJXrSWiRPU+pDBmeGsUikyhFqk1f0OlCpVWJfYbRC8xWICJTBBHh3vkIf/xSfR5lt3YZT0UTq1NoIdMSNQ=="
+          "url": "https://registry.npmjs.org/@konitif/core/-/core-0.284.5.tgz",
+          "integrity": "sha512-kjVRlnHRJRtZCWiXrbKYUwXx0ELOmALcuIkD7nVWiViDLkYgsAUSnv9dFgx6NW5mGRPP5pymmAGwyoag28ncDw=="
         }
       },
       "license": "PolyForm-Noncommercial-1.0.0",
@@ -124,11 +126,11 @@
       "membership": "included",
       "repository": "https://github.com/LeMouf/konitif-nodal",
       "revision": {
-        "version": "0.285.1",
-        "sourceCommit": "669ebc50219b88a1ecdcb4e0c3e548c4bca2ccf7",
+        "version": "0.285.2",
+        "sourceCommit": "a0b92ba0b14bd961131958af68a8ee72053bca16",
         "artifact": {
-          "url": "https://registry.npmjs.org/@konitif/nodal/-/nodal-0.285.1.tgz",
-          "integrity": "sha512-hKO6u4lRQDrIPruqMQ+aLdvIB5I8Lm1hTfwQLPGHoA7+i41uI6repCIpCjdKeZoIXb6j5JVfnPPR3LW6zwV2cw=="
+          "url": "https://registry.npmjs.org/@konitif/nodal/-/nodal-0.285.2.tgz",
+          "integrity": "sha512-D+b5QhT5IkE8NXNv/OUx6McRp54+ir0lG8mKAcpEIGxlAOWwzRMs50TEKv6QDnQFhbjVkvRJz9Gr0eF4KxNwTQ=="
         }
       },
       "license": "PolyForm-Noncommercial-1.0.0",
@@ -141,8 +143,8 @@
       ],
       "evidence": [
         {
-          "claim": "Public npm metadata checked on 2026-09-20 records Nodal 0.285.1, its public artifact URL and integrity digest.",
-          "url": "https://registry.npmjs.org/@konitif%2fnodal/0.285.1",
+          "claim": "Public npm metadata checked on 2026-09-20 records Nodal 0.285.2, its public artifact URL and integrity digest.",
+          "url": "https://registry.npmjs.org/@konitif%2fnodal/0.285.2",
           "status": "recorded"
         }
       ],
@@ -214,6 +216,72 @@
       }
     },
     {
+      "id": "konitif:physics",
+      "name": "@konitif/physics",
+      "aliases": [],
+      "kind": "package",
+      "family": "konitif",
+      "role": "Headless physics backend lifecycle, commands and observations with explicit providers.",
+      "membership": "included",
+      "repository": "https://github.com/LeMouf/konitif-physics",
+      "revision": {
+        "version": "0.285.0",
+        "sourceCommit": "9014dcbec8673672d9a0588a40624d370860976b",
+        "artifact": { "url": "https://registry.npmjs.org/@konitif/physics/-/physics-0.285.0.tgz", "integrity": "sha512-aiZrCP3OOTp4+Q14UMTQ01XBoa7e2ajf9OfV0d5IgAZ3TBEl8lOfdauJ7xTOpeLmLKI6TNvEmjLJaZY7UNN8BA==" }
+      },
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "introducedOn": "2026-09-20",
+      "retiredOn": null,
+      "replacedBy": null,
+      "dependencies": [],
+      "evidence": [
+        { "claim": "Public npm metadata checked on 2026-09-20 records Physics 0.285.0 and its artifact integrity digest.", "url": "https://registry.npmjs.org/@konitif%2fphysics/0.285.0", "status": "recorded" }
+      ],
+      "unknowns": ["Cryptographic provenance signature verification is not recorded.", "Independent ownership and third-party contribution review are not recorded."],
+      "accessibility": "public",
+      "legalProvenance": {
+        "status": "declared",
+        "rightsHolder": "Maxime Mouflard",
+        "licensingAuthority": "Declared personal authorship and ownership by the licensor; independent chain-of-title and third-party rights review remain to be consolidated.",
+        "evidence": [],
+        "unknowns": ["Independent ownership verification and third-party contribution review remain to be consolidated.", "No independently reviewed evidence of licensing authority is recorded."],
+        "qualifiedOn": "2026-09-20"
+      }
+    },
+    {
+      "id": "konitif:temporal",
+      "name": "@konitif/temporal",
+      "aliases": [],
+      "kind": "package",
+      "family": "konitif",
+      "role": "Composable clocks, transport, scheduling and immutable history for application runtimes.",
+      "membership": "included",
+      "repository": "https://github.com/LeMouf/konitif-temporal",
+      "revision": {
+        "version": "0.284.1",
+        "sourceCommit": null,
+        "artifact": { "url": "https://registry.npmjs.org/@konitif/temporal/-/temporal-0.284.1.tgz", "integrity": "sha512-6iZrnqgPkbzwY/4PhmA1dVcPG2lPkRNJkvc5NwmoFuFDa9iyxx7O/4MuOJZWWJFT8TIDv8EqN8lRIK6pee4LGA==" }
+      },
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "introducedOn": "2026-09-20",
+      "retiredOn": null,
+      "replacedBy": null,
+      "dependencies": [],
+      "evidence": [
+        { "claim": "Public npm metadata checked on 2026-09-20 records Temporal 0.284.1 and its artifact integrity digest.", "url": "https://registry.npmjs.org/@konitif%2ftemporal/0.284.1", "status": "recorded" }
+      ],
+      "unknowns": ["Exact source commit for the published Temporal 0.284.1 archive is not publicly recorded.", "Cryptographic provenance signature verification is not recorded.", "Independent ownership and third-party contribution review are not recorded."],
+      "accessibility": "public",
+      "legalProvenance": {
+        "status": "declared",
+        "rightsHolder": "Maxime Mouflard",
+        "licensingAuthority": "Declared personal authorship and ownership by the licensor; independent chain-of-title and third-party rights review remain to be consolidated.",
+        "evidence": [],
+        "unknowns": ["Independent ownership verification and third-party contribution review remain to be consolidated.", "No independently reviewed evidence of licensing authority is recorded."],
+        "qualifiedOn": "2026-09-20"
+      }
+    },
+    {
       "id": "konitif:timeline",
       "name": "@konitif/timeline",
       "aliases": [],
@@ -271,11 +339,11 @@
       "membership": "included",
       "repository": "https://github.com/LeMouf/konitif-tools",
       "revision": {
-        "version": "0.284.2",
-        "sourceCommit": "10bfcf29447ce8967fbd172121eea5b9fdd13705",
+        "version": "0.284.6",
+        "sourceCommit": "60b43031ac61da157fe85a37f1e851a1e400d770",
         "artifact": {
-          "url": "https://registry.npmjs.org/@konitif/tools/-/tools-0.284.2.tgz",
-          "integrity": "sha512-YQj/VCyZ6oE95J2uVRHY46X8QR1a1EuNl7Z3Ycf++OPd3BPAjlTaxQpJGLPU+yTMOzgf3LKEbLC0CNmmHC6SAQ=="
+          "url": "https://registry.npmjs.org/@konitif/tools/-/tools-0.284.6.tgz",
+          "integrity": "sha512-T3eEpNA10opguLMBh4ZSqvOmLC8qYLe+u6hBytQj26Fq1Di9SG2Gvu22ypR7rnserUtv0DYfZm9EWv1gSVe9SA=="
         }
       },
       "license": "PolyForm-Noncommercial-1.0.0",
@@ -287,8 +355,8 @@
       ],
       "evidence": [
         {
-          "claim": "Public npm metadata checked on 2026-09-08 records Tools 0.284.2, its artifact integrity and its exact dependency on Core 0.284.2. This metadata check does not verify artifact bytes or provenance signatures.",
-          "url": "https://registry.npmjs.org/@konitif%2ftools/0.284.2",
+          "claim": "Public npm metadata checked on 2026-09-20 records Tools 0.284.6 and its artifact integrity digest.",
+          "url": "https://registry.npmjs.org/@konitif%2ftools/0.284.6",
           "status": "recorded"
         },
         {
@@ -312,6 +380,72 @@
           "No independently reviewed evidence of licensing authority is recorded."
         ],
         "qualifiedOn": "2026-09-08"
+      }
+    },
+    {
+      "id": "konitif:viewer",
+      "name": "@konitif/viewer",
+      "aliases": [],
+      "kind": "package",
+      "family": "konitif",
+      "role": "Amodal viewer contracts for projecting subjects without owning their authority.",
+      "membership": "included",
+      "repository": "https://github.com/LeMouf/konitif-viewer",
+      "revision": {
+        "version": "0.284.1",
+        "sourceCommit": "b594fb6ce08ef64e38b13554f81b3df93caaaa8f",
+        "artifact": { "url": "https://registry.npmjs.org/@konitif/viewer/-/viewer-0.284.1.tgz", "integrity": "sha512-rd+1wRjSkoSlnq/dcWbiycVJBYNhBGDf5Fmrx/YF5KG+hQA8iL3ug7by81BNZsvZiwfIo0toscemcoyqj/rAGg==" }
+      },
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "introducedOn": "2026-09-20",
+      "retiredOn": null,
+      "replacedBy": null,
+      "dependencies": ["konitif:composition"],
+      "evidence": [
+        { "claim": "Public npm metadata checked on 2026-09-20 records Viewer 0.284.1 and its artifact integrity digest.", "url": "https://registry.npmjs.org/@konitif%2fviewer/0.284.1", "status": "recorded" }
+      ],
+      "unknowns": ["Cryptographic provenance signature verification is not recorded.", "Independent ownership and third-party contribution review are not recorded."],
+      "accessibility": "public",
+      "legalProvenance": {
+        "status": "declared",
+        "rightsHolder": "Maxime Mouflard",
+        "licensingAuthority": "Declared personal authorship and ownership by the licensor; independent chain-of-title and third-party rights review remain to be consolidated.",
+        "evidence": [],
+        "unknowns": ["Independent ownership verification and third-party contribution review remain to be consolidated.", "No independently reviewed evidence of licensing authority is recorded."],
+        "qualifiedOn": "2026-09-20"
+      }
+    },
+    {
+      "id": "konitif:viewer-3d",
+      "name": "@konitif/viewer-3d",
+      "aliases": [],
+      "kind": "package",
+      "family": "konitif",
+      "role": "Three.js spatial projection contracts and an explicit-provider renderer for KONITIF viewers.",
+      "membership": "included",
+      "repository": "https://github.com/LeMouf/konitif-viewer-3d",
+      "revision": {
+        "version": "0.285.2",
+        "sourceCommit": "b7190b3b6f69164bc43f75164b3b3609699b71d3",
+        "artifact": { "url": "https://registry.npmjs.org/@konitif/viewer-3d/-/viewer-3d-0.285.2.tgz", "integrity": "sha512-gzqphSWi018qYN1mhz+bydyhTNUXX9AGIq23zkjkOSB7TpGMSBjrEnzhJMC27JH4kjSLZphntXcVUylqCPKXHA==" }
+      },
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "introducedOn": "2026-09-20",
+      "retiredOn": null,
+      "replacedBy": null,
+      "dependencies": ["konitif:physics", "konitif:temporal", "konitif:tools", "konitif:viewer"],
+      "evidence": [
+        { "claim": "Public npm metadata checked on 2026-09-20 records Viewer 3D 0.285.2 and its artifact integrity digest.", "url": "https://registry.npmjs.org/@konitif%2fviewer-3d/0.285.2", "status": "recorded" }
+      ],
+      "unknowns": ["Third-party Three.js dependency provenance is not recorded in this KONITIF registry entry.", "Cryptographic provenance signature verification is not recorded.", "Independent ownership and third-party contribution review are not recorded."],
+      "accessibility": "public",
+      "legalProvenance": {
+        "status": "declared",
+        "rightsHolder": "Maxime Mouflard",
+        "licensingAuthority": "Declared personal authorship and ownership by the licensor; independent chain-of-title and third-party rights review remain to be consolidated.",
+        "evidence": [],
+        "unknowns": ["Independent ownership verification and third-party contribution review remain to be consolidated.", "No independently reviewed evidence of licensing authority is recorded."],
+        "qualifiedOn": "2026-09-20"
       }
     },
     {
@@ -373,7 +507,7 @@
     }
   ],
   "unknowns": [
-    "Core, Composition, Nodal, Nodal Blockly, Timeline, Tools and Widgets are inventoried; broader ecosystem membership is not yet fully inventoried here.",
+    "Core, Composition, Nodal, Nodal Blockly, Physics, Temporal, Timeline, Tools, Viewer, Viewer 3D and Widgets are inventoried; broader ecosystem membership is not yet fully inventoried here.",
     "First ecosystem release version and publication workflow remain to be defined."
   ]
 }
