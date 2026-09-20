@@ -12,12 +12,12 @@ test('Tools is included by immutable distribution reference and resolves its Cor
   assert.equal(tools.membership, 'included');
   assert.equal(tools.accessibility, 'public');
   assert.equal(tools.repository, 'https://github.com/LeMouf/konitif-tools');
-  assert.equal(tools.revision.version, '0.284.2');
-  assert.equal(tools.revision.sourceCommit, '10bfcf29447ce8967fbd172121eea5b9fdd13705');
-  assert.equal(tools.revision.artifact.url, 'https://registry.npmjs.org/@konitif/tools/-/tools-0.284.2.tgz');
-  assert.equal(tools.revision.artifact.integrity, 'sha512-YQj/VCyZ6oE95J2uVRHY46X8QR1a1EuNl7Z3Ycf++OPd3BPAjlTaxQpJGLPU+yTMOzgf3LKEbLC0CNmmHC6SAQ==');
+  assert.equal(tools.revision.version, '0.284.6');
+  assert.equal(tools.revision.sourceCommit, '60b43031ac61da157fe85a37f1e851a1e400d770');
+  assert.equal(tools.revision.artifact.url, 'https://registry.npmjs.org/@konitif/tools/-/tools-0.284.6.tgz');
+  assert.equal(tools.revision.artifact.integrity, 'sha512-T3eEpNA10opguLMBh4ZSqvOmLC8qYLe+u6hBytQj26Fq1Di9SG2Gvu22ypR7rnserUtv0DYfZm9EWv1gSVe9SA==');
   assert.deepEqual(tools.dependencies, ['konitif:core']);
-  assert.equal(current.components.find(item => item.id === tools.dependencies[0]).revision.version, '0.284.2');
+  assert.equal(current.components.find(item => item.id === tools.dependencies[0]).revision.version, '0.284.5');
   assert.equal(tools.license, 'PolyForm-Noncommercial-1.0.0');
   assert.equal(tools.legalProvenance.status, 'declared');
   assert.deepEqual(tools.legalProvenance.evidence, []);
@@ -41,12 +41,12 @@ test('current draft adds Composition by reference and preserves the Core baselin
   assert.equal(validateRegistry(current).releaseAdmitted, false);
   const composition = current.components.find(item => item.id === 'konitif:composition');
   assert.equal(composition.name, '@konitif/composition');
-  assert.equal(composition.revision.version, '0.284.2');
-  assert.equal(composition.revision.sourceCommit, '57277dae62e3ba94a1c48f9ccdd75dbba96ff308');
+  assert.equal(composition.revision.version, '0.284.5');
+  assert.equal(composition.revision.sourceCommit, 'eed1a4d1d4881067d78b4166fd84e051400bc128');
   assert.equal(composition.repository, 'https://github.com/LeMouf/konitif-composition');
-  assert.equal(composition.revision.artifact.integrity, 'sha512-SpLg8LSY93xDNwSUBWitc+LUmlVMjEzesKyWovC+gB+qxF1JHoWFbV6h6kSTFoLrU3MUH++v3oDHsKw41OtKCA==');
-  assert.deepEqual(composition.dependencies, []);
-  assert.equal(current.components.find(item => item.id === 'konitif:core').revision.sourceCommit, previous.components[0].revision.sourceCommit);
+  assert.equal(composition.revision.artifact.integrity, 'sha512-km8ye1tWgsjSQnzL0HwQ6Oz0Grr0Pc4VQTwD48uvRwfeEXTPMoV06iddSmGgou0HcJwQdReMghk68h0/EVPG9g==');
+  assert.deepEqual(composition.dependencies, ['konitif:core']);
+  assert.equal(current.components.find(item => item.id === 'konitif:core').revision.sourceCommit, 'd3ad2a2df1fedc8eda6ae91f97774d3d85e423f2');
 });
 
 test('recorded Composition distribution does not clear release-admission unknowns', () => {
