@@ -115,12 +115,159 @@
       }
     },
     {
+      "id": "konitif:nodal",
+      "name": "@konitif/nodal",
+      "aliases": [],
+      "kind": "package",
+      "family": "konitif",
+      "role": "Portable graph mechanics, scoped projection contributions and deterministic execution for KONITIF systems.",
+      "membership": "included",
+      "repository": "https://github.com/LeMouf/konitif-nodal",
+      "revision": {
+        "version": "0.285.1",
+        "sourceCommit": "669ebc50219b88a1ecdcb4e0c3e548c4bca2ccf7",
+        "artifact": {
+          "url": "https://registry.npmjs.org/@konitif/nodal/-/nodal-0.285.1.tgz",
+          "integrity": "sha512-hKO6u4lRQDrIPruqMQ+aLdvIB5I8Lm1hTfwQLPGHoA7+i41uI6repCIpCjdKeZoIXb6j5JVfnPPR3LW6zwV2cw=="
+        }
+      },
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "introducedOn": "2026-09-20",
+      "retiredOn": null,
+      "replacedBy": null,
+      "dependencies": [
+        "konitif:composition",
+        "konitif:tools"
+      ],
+      "evidence": [
+        {
+          "claim": "Public npm metadata checked on 2026-09-20 records Nodal 0.285.1, its public artifact URL and integrity digest.",
+          "url": "https://registry.npmjs.org/@konitif%2fnodal/0.285.1",
+          "status": "recorded"
+        }
+      ],
+      "unknowns": [
+        "Cryptographic provenance signature verification is not recorded.",
+        "Independent ownership and third-party contribution review are not recorded."
+      ],
+      "accessibility": "public",
+      "legalProvenance": {
+        "status": "declared",
+        "rightsHolder": "Maxime Mouflard",
+        "licensingAuthority": "Declared personal authorship and ownership by the licensor; independent chain-of-title and third-party rights review remain to be consolidated.",
+        "evidence": [],
+        "unknowns": [
+          "Independent ownership verification and third-party contribution review remain to be consolidated.",
+          "No independently reviewed evidence of licensing authority is recorded."
+        ],
+        "qualifiedOn": "2026-09-20"
+      }
+    },
+    {
+      "id": "konitif:nodal-blockly",
+      "name": "@konitif/nodal-blockly",
+      "aliases": [],
+      "kind": "package",
+      "family": "konitif",
+      "role": "Hosted Blockly editing projection of canonical KONITIF Workflow Compositions.",
+      "membership": "included",
+      "repository": "https://github.com/LeMouf/konitif-nodal-blockly",
+      "revision": {
+        "version": "0.284.2",
+        "sourceCommit": "f140d1a47472cfdcf3e7048a879bb17f99723f97",
+        "artifact": {
+          "url": "https://registry.npmjs.org/@konitif/nodal-blockly/-/nodal-blockly-0.284.2.tgz",
+          "integrity": "sha512-NbH0rbbj7Rz/jHiU0aOE8tWKavI42KfPYuZ37uWNmeKNaVjH5/iwMrUT19As400mg4vSGB+APNL0nhCUZQ/hSg=="
+        }
+      },
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "introducedOn": "2026-09-20",
+      "retiredOn": null,
+      "replacedBy": null,
+      "dependencies": [
+        "konitif:composition",
+        "konitif:nodal",
+        "konitif:tools"
+      ],
+      "evidence": [
+        {
+          "claim": "Public npm metadata checked on 2026-09-20 records Nodal Blockly 0.284.2, its public artifact URL and integrity digest.",
+          "url": "https://registry.npmjs.org/@konitif%2fnodal-blockly/0.284.2",
+          "status": "recorded"
+        }
+      ],
+      "unknowns": [
+        "Cryptographic provenance signature verification is not recorded.",
+        "Independent ownership and third-party contribution review are not recorded."
+      ],
+      "accessibility": "public",
+      "legalProvenance": {
+        "status": "declared",
+        "rightsHolder": "Maxime Mouflard",
+        "licensingAuthority": "Declared personal authorship and ownership by the licensor; independent chain-of-title and third-party rights review remain to be consolidated.",
+        "evidence": [],
+        "unknowns": [
+          "Independent ownership verification and third-party contribution review remain to be consolidated.",
+          "No independently reviewed evidence of licensing authority is recorded."
+        ],
+        "qualifiedOn": "2026-09-20"
+      }
+    },
+    {
+      "id": "konitif:timeline",
+      "name": "@konitif/timeline",
+      "aliases": [],
+      "kind": "package",
+      "family": "konitif",
+      "role": "Headless temporal projection, composable track contributions and interaction state.",
+      "membership": "included",
+      "repository": "https://github.com/LeMouf/konitif-timeline",
+      "revision": {
+        "version": "0.285.2",
+        "sourceCommit": "89f7199602e6f7f1b68b1245e78065d7b262983a",
+        "artifact": {
+          "url": "https://registry.npmjs.org/@konitif/timeline/-/timeline-0.285.2.tgz",
+          "integrity": "sha512-b1JumUiC0tyMWbUsl8t1TqF3/+jrZcF9lQCzjXAVhWOspYYygu1BJxm/E824oBk0PXw5NGfcpgXpnwkgvBTfYw=="
+        }
+      },
+      "license": "PolyForm-Noncommercial-1.0.0",
+      "introducedOn": "2026-09-20",
+      "retiredOn": null,
+      "replacedBy": null,
+      "dependencies": [
+        "konitif:tools"
+      ],
+      "evidence": [
+        {
+          "claim": "Public npm metadata checked on 2026-09-20 records Timeline 0.285.2, its public artifact URL and integrity digest.",
+          "url": "https://registry.npmjs.org/@konitif%2ftimeline/0.285.2",
+          "status": "recorded"
+        }
+      ],
+      "unknowns": [
+        "Cryptographic provenance signature verification is not recorded.",
+        "Independent ownership and third-party contribution review are not recorded."
+      ],
+      "accessibility": "public",
+      "legalProvenance": {
+        "status": "declared",
+        "rightsHolder": "Maxime Mouflard",
+        "licensingAuthority": "Declared personal authorship and ownership by the licensor; independent chain-of-title and third-party rights review remain to be consolidated.",
+        "evidence": [],
+        "unknowns": [
+          "Independent ownership verification and third-party contribution review remain to be consolidated.",
+          "No independently reviewed evidence of licensing authority is recorded."
+        ],
+        "qualifiedOn": "2026-09-20"
+      }
+    },
+    {
       "id": "konitif:tools",
       "name": "@konitif/tools",
       "aliases": [],
       "kind": "package",
       "family": "konitif",
-      "role": "Product-neutral tool contracts, capability declarations and implementation bindings.",
+      "role": "Portable tool contracts, capability declarations and implementation bindings.",
       "membership": "included",
       "repository": "https://github.com/LeMouf/konitif-tools",
       "revision": {
@@ -173,7 +320,7 @@
       "aliases": [],
       "kind": "package",
       "family": "konitif",
-      "role": "Product-neutral widget definitions, immutable instance catalogs and explicit implementation bindings.",
+      "role": "Portable widget definitions, immutable instance catalogs and explicit implementation bindings.",
       "membership": "included",
       "repository": "https://github.com/LeMouf/konitif-widgets",
       "revision": {
@@ -226,7 +373,7 @@
     }
   ],
   "unknowns": [
-    "Core, Composition, Tools and Widgets draft; broader ecosystem membership is not yet inventoried here.",
+    "Core, Composition, Nodal, Nodal Blockly, Timeline, Tools and Widgets are inventoried; broader ecosystem membership is not yet fully inventoried here.",
     "First ecosystem release version and publication workflow remain to be defined."
   ]
 }
