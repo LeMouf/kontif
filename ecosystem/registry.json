@@ -225,9 +225,9 @@
       "membership": "included",
       "repository": "https://github.com/LeMouf/konitif-physics",
       "revision": {
-        "version": "0.285.0",
-        "sourceCommit": "9014dcbec8673672d9a0588a40624d370860976b",
-        "artifact": { "url": "https://registry.npmjs.org/@konitif/physics/-/physics-0.285.0.tgz", "integrity": "sha512-aiZrCP3OOTp4+Q14UMTQ01XBoa7e2ajf9OfV0d5IgAZ3TBEl8lOfdauJ7xTOpeLmLKI6TNvEmjLJaZY7UNN8BA==" }
+        "version": "0.285.2",
+        "sourceCommit": "a9c73d404c70dc4d1d7317c2ff290d4d4dd72ed1",
+        "artifact": { "url": "https://registry.npmjs.org/@konitif/physics/-/physics-0.285.2.tgz", "integrity": "sha512-5mHUKSq0WgIS18D452RB/ypMXQeC1nidgrv17LboSfZ3ogCbc9S/iDgHijkF8NqSPpLfLGIzkucOAumQShSpXw==" }
       },
       "license": "PolyForm-Noncommercial-1.0.0",
       "introducedOn": "2026-09-20",
@@ -235,7 +235,8 @@
       "replacedBy": null,
       "dependencies": [],
       "evidence": [
-        { "claim": "Public npm metadata checked on 2026-09-20 records Physics 0.285.0 and its artifact integrity digest.", "url": "https://registry.npmjs.org/@konitif%2fphysics/0.285.0", "status": "recorded" }
+        { "claim": "Public npm metadata checked on 2026-09-20 records Physics 0.285.2; its integrity digest matches the locally verified publication archive.", "url": "https://registry.npmjs.org/@konitif%2fphysics/0.285.2", "status": "recorded" },
+        { "claim": "Successful Physics publication workflow for source commit a9c73d404c70dc4d1d7317c2ff290d4d4dd72ed1, checked on 2026-09-20.", "url": "https://github.com/LeMouf/konitif-physics/actions/runs/35529341292", "status": "recorded" }
       ],
       "unknowns": ["Cryptographic provenance signature verification is not recorded.", "Independent ownership and third-party contribution review are not recorded."],
       "accessibility": "public",
@@ -258,9 +259,9 @@
       "membership": "included",
       "repository": "https://github.com/LeMouf/konitif-temporal",
       "revision": {
-        "version": "0.284.1",
-        "sourceCommit": null,
-        "artifact": { "url": "https://registry.npmjs.org/@konitif/temporal/-/temporal-0.284.1.tgz", "integrity": "sha512-6iZrnqgPkbzwY/4PhmA1dVcPG2lPkRNJkvc5NwmoFuFDa9iyxx7O/4MuOJZWWJFT8TIDv8EqN8lRIK6pee4LGA==" }
+        "version": "0.284.3",
+        "sourceCommit": "e9a19a12753a5b2e41cf64c0c0391f82186c5905",
+        "artifact": { "url": "https://registry.npmjs.org/@konitif/temporal/-/temporal-0.284.3.tgz", "integrity": "sha512-O0QwslbpPp84YtTIPqPN37tuHtKz0ZQlT2rFAZVKLCIa6VNJ0OfkYmC7u7aup4boU1MRMtSIFwqJVBWZZyCMxw==" }
       },
       "license": "PolyForm-Noncommercial-1.0.0",
       "introducedOn": "2026-09-20",
@@ -268,9 +269,10 @@
       "replacedBy": null,
       "dependencies": [],
       "evidence": [
-        { "claim": "Public npm metadata checked on 2026-09-20 records Temporal 0.284.1 and its artifact integrity digest.", "url": "https://registry.npmjs.org/@konitif%2ftemporal/0.284.1", "status": "recorded" }
+        { "claim": "Public npm metadata checked on 2026-09-20 records Temporal 0.284.3; its integrity digest matches the locally verified publication archive.", "url": "https://registry.npmjs.org/@konitif%2ftemporal/0.284.3", "status": "recorded" },
+        { "claim": "Successful Temporal publication workflow for source commit e9a19a12753a5b2e41cf64c0c0391f82186c5905, checked on 2026-09-20.", "url": "https://github.com/LeMouf/konitif-temporal/actions/runs/35527292839", "status": "recorded" }
       ],
-      "unknowns": ["Exact source commit for the published Temporal 0.284.1 archive is not publicly recorded.", "Cryptographic provenance signature verification is not recorded.", "Independent ownership and third-party contribution review are not recorded."],
+      "unknowns": ["Cryptographic provenance signature verification is not recorded.", "Independent ownership and third-party contribution review are not recorded."],
       "accessibility": "public",
       "legalProvenance": {
         "status": "declared",
@@ -392,9 +394,9 @@
       "membership": "included",
       "repository": "https://github.com/LeMouf/konitif-viewer",
       "revision": {
-        "version": "0.284.1",
-        "sourceCommit": "b594fb6ce08ef64e38b13554f81b3df93caaaa8f",
-        "artifact": { "url": "https://registry.npmjs.org/@konitif/viewer/-/viewer-0.284.1.tgz", "integrity": "sha512-rd+1wRjSkoSlnq/dcWbiycVJBYNhBGDf5Fmrx/YF5KG+hQA8iL3ug7by81BNZsvZiwfIo0toscemcoyqj/rAGg==" }
+        "version": "0.284.3",
+        "sourceCommit": "959ebe491f6efba7ee2d204b0228d410c918d91a",
+        "artifact": { "url": "https://registry.npmjs.org/@konitif/viewer/-/viewer-0.284.3.tgz", "integrity": "sha512-X7vmRPhN8Gbkn6zBhXZpMzJx3PljmqWzhpuWWWZLovOU3YHv9tMv+NqjBuVGJFN6pXZyLMIhWyH4tq0no0H84w==" }
       },
       "license": "PolyForm-Noncommercial-1.0.0",
       "introducedOn": "2026-09-20",
@@ -402,7 +404,8 @@
       "replacedBy": null,
       "dependencies": ["konitif:composition"],
       "evidence": [
-        { "claim": "Public npm metadata checked on 2026-09-20 records Viewer 0.284.1 and its artifact integrity digest.", "url": "https://registry.npmjs.org/@konitif%2fviewer/0.284.1", "status": "recorded" }
+        { "claim": "Public npm metadata checked on 2026-09-20 records Viewer 0.284.3; its integrity digest matches the locally verified publication archive.", "url": "https://registry.npmjs.org/@konitif%2fviewer/0.284.3", "status": "recorded" },
+        { "claim": "Successful Viewer publication workflow for source commit 959ebe491f6efba7ee2d204b0228d410c918d91a, checked on 2026-09-20.", "url": "https://github.com/LeMouf/konitif-viewer/actions/runs/35527295345", "status": "recorded" }
       ],
       "unknowns": ["Cryptographic provenance signature verification is not recorded.", "Independent ownership and third-party contribution review are not recorded."],
       "accessibility": "public",
